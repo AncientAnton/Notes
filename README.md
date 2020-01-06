@@ -8,6 +8,8 @@ Course课程笔记
 
 - [第一周](alg-part1/alg-part1-week1.md)
 - [第二周](alg-part1/alg-part1-week2.md)
+- [第三周](alg-part1/alg-part1-week3.md)
+- [第四周](alg-part1/alg-part1-week4.md)
 
 
 ## 数据库
@@ -44,3 +46,8 @@ Course课程笔记
 公司|翻译|原文
 ---|----|----
 Twitter|[150M 活跃用户，300K QPS，22 MB/S 的防火墙](system-design/twitter-arch.md)|[原文地址](http://highscalability.com/blog/2013/7/8/the-architecture-twitter-uses-to-deal-with-150m-active-users.html)
+
+## Java
+
+- [分析Dump](java/analysis-dump-log.md)
+

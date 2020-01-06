@@ -197,5 +197,11 @@
 - ★★★ Spring-Boot（启动过程、AutoConfigure）
 - ★★☆ Spring-Cloud（分布式相关组件大概原理）
 
+# 11. 常用工具
+
+- ★★☆ Maven打包脚本
+- ★★☆ Git基础命令
+- ★☆☆ Docker日常使用
+
 
 参考 [一文帮你理清面试知识点](https://github.com/CyC2018/Backend-Interview-Guide/blob/master/doc/%E4%B8%80%E6%96%87%E5%B8%AE%E4%BD%A0%E7%90%86%E6%B8%85%E9%9D%A2%E8%AF%95%E7%9F%A5%E8%AF%86%E7%82%B9.md)
