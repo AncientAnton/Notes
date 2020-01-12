@@ -190,12 +190,26 @@
 
 # 10. Spring框架
 
-- ★★★ Spring-Beans（初始化、生命周期、处理循环依赖等）
-- ★★★ Spring-Aop（实现细节）
-- ★★☆ Spring-Tx（事务实现的细节，应用异常导致事务失败？）
-- ★★★ Spring-Mvc（启动过程，主要扩展点）
-- ★★★ Spring-Boot（启动过程、AutoConfigure）
-- ★★☆ Spring-Cloud（分布式相关组件大概原理）
+* ★★★ Spring-Beans（初始化、生命周期、处理循环依赖等）
+* ★★★ Spring-Aop（实现细节）
+* ★★☆ Spring-Tx（事务实现的细节，应用异常导致事务失败？）
+* ★★★ Spring-Mvc（启动过程，主要扩展点）
+* ★★★ Spring-Boot（启动过程、AutoConfigure）
+* ★★☆ Spring-Cloud
+    * 服务注册
+        * 原理、遇到的问题、解决办法
+    * 底层通信
+        * Netty
+    * 序列化机制
+        * 不同序列化机制的实现、优劣
+    * 负载均衡
+        * 常见算法的实现与优劣
+    * 容错处理
+        * fast-fail
+        * retry
+    * 链路追踪
+        * 如何实现
+    * 监控告警
 
 # 11. 常用工具
 

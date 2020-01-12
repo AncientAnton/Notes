@@ -32,6 +32,8 @@ Course课程笔记
 - [Spring-Tx](source-read/spring-tx.md)
 - [Spring-Boot](source-read/spring-boot.md)
 - [Redis解析](source-read/redis-source.md)
+- [RocketMQ](source-read/rocket-mq.md)
+- [MyBatis](source-read/mybatis.md)
 
 ## 系统设计
 
