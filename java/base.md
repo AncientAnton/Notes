@@ -105,7 +105,19 @@ Unicode符号范围|UTF-8编码方式
 ### 3.2 引用类型
 
 * Object
+    * equals
+    * clone
+    * hashcode
 * String
+    * 不可变的`final class`
+        * 用作hash值
+        * 线程安全
+    * Java8之前使用char[]
+    * Java8之后使用byte[] + coder
+    * String Pool
+        * 保存着所有字符串字面量（literal strings），编译时期确定
+        * 使用 String 的 intern() 方法
+        * 运行时可以将字符串添加到 String Pool 中。
 
 
 ### 3.3 类型转换
@@ -116,6 +128,19 @@ Unicode符号范围|UTF-8编码方式
 * 拆箱转换
 * 字符串转换
 * rawType转换
+
+### 3.4 缓存池
+
+* boolean values true and false
+* all byte values
+* short values between -128 and 127
+* int values between -128 and 127
+* char in the range \u0000 to \u007F
+
+new Integer(123) 与 Integer.valueOf(123) 的区别在于：
+* new Integer(123) 每次都会新建一个对象；
+* Integer.valueOf(123) 会使用缓存池中的对象，多次调用会取得同一个对象的引用。
+* -XX:AutoBoxCacheMax=\<size\> 指定Integer缓存池大小
 
 ## 4. 包、接口、类
 
