@@ -163,3 +163,13 @@ new Integer(123) 与 Integer.valueOf(123) 的区别在于：
 * 匿名内部类实例`new C(...){...}`或`E.new C(...){...}`可以访问
 * 其余不行
 
+### 4.3 import语句
+
+```
+import java.util.Vector;
+import java.util.*;
+import static TypeName . Identifier ;
+import static TypeName . * ;
+```
+
+

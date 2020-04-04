@@ -148,6 +148,120 @@ public interface Queue<E> extends Collection<E> {
 
 * HashMap
 
+
+重要参数
+
+```
+    /**
+    * 默认初始容量16，必须为2的N次方
+    */
+    static final int DEFAULT_INITIAL_CAPACITY = 1 << 4; // aka 16
+
+    /**
+     * 最大容量，小于 1<<30.
+     */
+    static final int MAXIMUM_CAPACITY = 1 << 30;
+
+    /**
+     * 负载参数
+     */
+    static final float DEFAULT_LOAD_FACTOR = 0.75f;
+
+    /**
+     * 将桶从链表转为红黑树的阈值
+     */
+    static final int TREEIFY_THRESHOLD = 8;
+
+    /**
+     * 将桶从红黑树转为链表的阈值
+     */
+    static final int UNTREEIFY_THRESHOLD = 6;
+
+    /**
+     * 最小的桶数目
+     */
+    static final int MIN_TREEIFY_CAPACITY = 64;
+```
+
+单链表节点
+
+```
+static class Node<K,V> implements Map.Entry<K,V> {
+    final int hash;
+    final K key;
+    V value;
+    Node<K,V> next;
+}
+```
+
+计算哈希值
+
+```
+static final int hash(Object key) {
+    int h;
+    return (key == null) ? 0 : (h = key.hashCode()) ^ (h >>> 16);
+}
+```
+
+存储数据
+
+```
+    /**
+     * 桶
+     */
+    transient Node<K,V>[] table;
+
+    /**
+     * 供 keySet() 与 values() 视图使用
+     */
+    transient Set<Map.Entry<K,V>> entrySet;
+
+    /**
+     * 存储的元素数目
+     */
+    transient int size;
+
+    /**
+     * 修改次数，并发控制
+     */
+    transient int modCount;
+
+    /**
+     * capacity * load factor 
+     * 下一次resize的阈值
+     */
+    int threshold;
+
+    /**
+     * 负载参数
+     */
+    final float loadFactor;
+```
+
+添加
+
+```
+public V put(K key, V value) {
+    return putVal(hash(key), key, value, false, true);
+}
+
+/**
+* 
+*
+* @param hash 哈希值
+* @param key 键
+* @param value 值
+* @param onlyIfAbsent 若为true，则不改变当前已存在的值
+* @param evict 若为false，则哈希表正在创建过程中
+* @return 键对应已存在的前一个值，若无则返回空
+*/
+final V putVal(int hash, K key, V value, boolean onlyIfAbsent,
+            boolean evict)
+```
+
+转为红黑树
+
+
 * LinkedHashMap
     * 继承了HashMap
     * 维护双向链表来维护插入/LRU顺序
@@ -164,4 +278,5 @@ transient LinkedHashMap.Entry<K,V> head;
 
 transient LinkedHashMap.Entry<K,V> tail;
 ```
+
 * WeakHashMap

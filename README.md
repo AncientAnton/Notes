@@ -16,8 +16,12 @@ Course课程笔记
 
 和数据库有关的一切
 
-- [学习大纲](database/database.md)
-- [高性能MySQL](database/op-mysql.md)
+- [InnoDB引擎](database/innodb.md)
+- [高性能MySQL：第一章~第六章](database/op-mysql-1-6.md)
+- [高性能MySQL：第七章~第十章](database/op-mysql-7-10.md)
+- [高性能MySQL：第十一章~第十三章](database/op-mysql-11-13.md)
+- [高性能MySQL：第十四章~第十六章](database/op-mysql-14-16.md)
+- [高性能MySQL：附录](database/op-mysql-appendix.md)
 - [Oracle编程艺术](database/oracle-art.md)
 
 ## 消息队列
@@ -54,7 +58,7 @@ Twitter|[150M 活跃用户，300K QPS，22 MB/S 的防火墙](system-design/twit
 - [Java基础语法](java/base.md)
 - [Java基础集合](java/collection.md)
 - [Java IO](java/io.md)
-- [Java 反射](java/reflection.md)
+- [Java 反射与代理](java/reflection.md)
 - [Java 异常](java/exception.md)
 - [Java网络库](java/network.md)
 - [Java并发库](java/concurrent.md)
