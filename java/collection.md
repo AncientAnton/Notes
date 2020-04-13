@@ -11,6 +11,8 @@
 
 * LinkedHashSet：具有 HashSet 的查找效率，并且内部使用双向链表维护元素的插入顺序。
 
+* BitSet：位向量
+
 2. List
 
 * ArrayList：基于动态数组实现，支持随机访问。
@@ -25,7 +27,7 @@
 
 * PriorityQueue：基于堆结构实现，可以用它来实现优先队列。
 
-## Map
+4. Map
 
 * TreeMap：基于红黑树实现。
 
@@ -145,6 +147,10 @@ public interface Queue<E> extends Collection<E> {
     E peek(); // 返回队列头，可以为null
 }
 ```
+
+* PriorityQueue
+
+使用堆实现优先级队列
 
 * HashMap
 
