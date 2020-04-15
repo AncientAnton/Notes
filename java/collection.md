@@ -152,6 +152,109 @@ public interface Queue<E> extends Collection<E> {
 
 使用堆实现优先级队列
 
+```
+// 存储元素
+transient Object[] queue;
+
+// 可以手动指定顺序
+private final Comparator<? super E> comparator;
+
+// 修改次数，控制并发
+transient int modCount = 0;
+```
+
+关键方法：插入
+
+```
+public boolean offer(E e) {
+    if (e == null)
+        throw new NullPointerException();
+    modCount++;
+    int i = size;
+    if (i >= queue.length)
+        // 小于64则加倍扩容。否则按50%扩容
+        grow(i + 1);
+    size = i + 1;
+    if (i == 0)
+        // 一个元素时不用建堆
+        queue[0] = e;
+    else
+        // 上浮操作
+        siftUp(i, e);
+    return true;
+}
+```
+
+关键方法：删除
+
+```
+public E poll() {
+    if (size == 0)
+        return null;
+    int s = --size;
+    modCount++;
+    E result = (E) queue[0];
+    E x = (E) queue[s];
+    queue[s] = null;
+    if (s != 0)
+        // 下沉节点
+        siftDown(0, x);
+    return result;
+}
+```
+
+关键方法：建堆
+
+```
+private void heapify() {
+    for (int i = (size >>> 1) - 1; i >= 0; i--)
+        siftDown(i, (E) queue[i]);
+}
+```
+
+关键方法：节点上浮
+
+```
+private void siftUpComparable(int k, E x) {
+    Comparable<? super E> key = (Comparable<? super E>) x;
+    while (k > 0) {
+        int parent = (k - 1) >>> 1;
+        Object e = queue[parent];
+        // 比较父节点
+        if (key.compareTo((E) e) >= 0)
+            break;
+        // 父节点往下移
+        queue[k] = e;
+        k = parent;
+    }
+    // 得到最终位置
+    queue[k] = key;
+}
+```
+
+关键方法：节点下沉
+
+```
+private void siftDownComparable(int k, E x) {
+    Comparable<? super E> key = (Comparable<? super E>)x;
+    int half = size >>> 1;        // 非叶子节点时进行循环
+    while (k < half) {
+        int child = (k << 1) + 1; // 左边子节点
+        Object c = queue[child];
+        int right = child + 1;
+        // 是否需要比较右边子节点
+        if (right < size &&
+            ((Comparable<? super E>) c).compareTo((E) queue[right]) > 0)
+            c = queue[child = right];
+        if (key.compareTo((E) c) <= 0)
+            break;
+        queue[k] = c;
+        k = child;
+    }
+    queue[k] = key;
+}
+```
+
 * HashMap
 
 

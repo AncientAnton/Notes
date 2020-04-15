@@ -6,8 +6,6 @@
 
 # 常用命令
 
-## Linux
-
 ps
 top
 more
@@ -21,3 +19,5 @@ awk
 jcmd pid VM.native_memory detail
 jstack
 pmap
+
+# arthas

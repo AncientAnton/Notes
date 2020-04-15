@@ -278,6 +278,56 @@ OSI模型在**应用层**与**传输层**之间还有
 * 设置超时重传时间
     * TimeoutInterval = EstimatedRTT + 4 * DevRTT
 
+#### 3.3.3 可靠数据传输
+
+* 超时重传
+* 超时间隔加倍
+* 快速重传
+    * 收到3个冗余ACK
+* 回退N步 或者 选择重传
+
+#### 3.3.4 流量控制
+
+* 发送方维护接收窗口
+
+#### 3.3.5 TCP连接管理
+
+* SYN洪泛攻击
+    * 大量半连接请求
+    * 客户端不发送ACK确认
+
+### 3.4 TCP拥塞控制
+
+* 多跳路由传输
+* 路由有缓存限制
+
+#### 3.4.1 慢启动
+
+* 设置拥塞窗口初始值 cwnd = 1 MSS
+* 设置慢启动的阈值 ssthresh = 16 MSS
+* 每收到一个ACK cwnd += 1 MSS
+* 增长速度随RTT呈指数型增长
+* 直到cwnd = ssthresh
+
+#### 3.4.2 拥塞避免
+
+* 正常情况
+    * cwnd 达到 ssthresh
+    * 每个RTT后cwnd = cwnd + 1 MSS
+* 检查到拥塞（超时丢包）
+    * 设置 ssthresh = cwnd / 2 且 cwnd = 1
+    * 重新开始慢启动
+* 检查到3个重复ACK
+    * 设置 ssthresh = cwnd / 2
+    * 设置 cwnd = ssthresh + 3 MSS
+    * 重传丢失的包
+    * 进入快速恢复状态
+
+#### 3.4.3 快速恢复
+
+* 继续收到冗余ACK，cwnd = cwnd + 1 MSS
+* 最后收到新的ACK，cwnd = ssthresh，返回拥塞避免状态
+
 ## 第四章 网络层
 
 ## 第五章 链路层
