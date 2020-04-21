@@ -276,6 +276,8 @@ private Node deleteMin(Node x)
 
 - Hibbard deletion
 
+删除任意值
+
 ```
 
 public void delete(Key key)
