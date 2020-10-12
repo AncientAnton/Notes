@@ -260,5 +260,7 @@ f[i] = max(f[i-1], f[i-2] + A[i]);
   * Wiggle Sort
   * Wiggle Sort II
 
+# 参考
 
-
+* [Nine Chapter Basic](https://github.com/zhechris/NineChapterBasic)
+* [Nine Chapter Senior](https://github.com/Louis9546/Nine_Chapter_Senior)
